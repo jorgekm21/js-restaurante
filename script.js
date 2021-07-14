@@ -21,3 +21,7 @@ const pedirProducto = cod => {
     console.log("Su producto ha sido agregado a su pedido. Su pedido es: ")
     console.table(pedido)
 }
+
+const verPedido = () => {
+    console.table(pedido)
+}
