@@ -25,3 +25,11 @@ const pedirProducto = cod => {
 const verPedido = () => {
     console.table(pedido)
 }
+
+const calcularCosto = () => {
+    total = 0
+    for (registro of pedido){
+        total += registro.costo
+    }
+    console.log(`Tienes que pagar un total de ${total}`)
+}
