@@ -1,6 +1,6 @@
 console.log('------- WELCOME TO THE ENGINEERING OF COOK -------')
 
-const pedido = []
+let pedido = []
 
 const mostrarMenu = () => {
     console.log("--------------- MENU -----------------")
@@ -31,5 +31,26 @@ const calcularCosto = () => {
     for (registro of pedido){
         total += registro.costo
     }
-    console.log(`Tienes que pagar un total de ${total}`)
+    return total
+}
+
+const finalizarPedido = () => {
+    total = calcularCosto()
+    usuario.deuda += total
+
+    pedido = []
+
+    console.log(`Usted debe un total de: ${usuario.deuda}`)
+}
+
+const pagarPedido = (montoEntregado) => {
+    if (usuario.deuda > montoEntregado){
+        devolucion = usuario.deuda - montoEntregado
+        usuario.deuda = devolucion
+        return console.log(`Falta un total de ${devolucion} por pagar`)
+    } else {
+        devolucion = montoEntregado - usuario.deuda
+        usuario.deuda = 0
+        return console.log(`Tu deuda fue cancelada de forma exitosa. El cliente debe recibir el siguiente cambio: ${devolucion}`)
+    }
 }
